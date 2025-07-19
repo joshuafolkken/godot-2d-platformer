@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+
+.import/
+
+export/
+build/
+reports/
+
+.DS_Store
+
+addons/*
+!addons/export_custom_manifest/
