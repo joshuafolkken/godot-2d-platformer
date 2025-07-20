@@ -80,8 +80,21 @@ func _update_state() -> void:
 			_set_state(State.FALL)
 
 
+func _fallen_off() -> void:
+	if global_position.y > 100:
+		SignalManager.on_player_hit.emit()
+
+
 func _physics_process(delta: float) -> void:
 	_get_input()
 	_apply_movement(delta)
 	_update_state()
 	move_and_slide()
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if !area.is_in_group("trap"):
+		return
+
+	velocity = Vector2.ZERO
+	SignalManager.on_player_hit.emit()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://d15y6ecwe474x"]
+[gd_scene load_steps=5 format=4 uid="uid://d15y6ecwe474x"]
 
 [ext_resource type="PackedScene" uid="uid://hmqq4pbyb36n" path="res://scenes/camera.tscn" id="1_osu2p"]
 [ext_resource type="TileSet" uid="uid://c52765ejv3ad7" path="res://assets/tilemap.tres" id="2_osu2p"]
 [ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/player.tscn" id="3_bkdr1"]
+[ext_resource type="PackedScene" uid="uid://cgwiugkysrqxa" path="res://scenes/spikes.tscn" id="4_58o6h"]
 
 [node name="LevelBase" type="Node2D"]
 
@@ -14,3 +15,12 @@ tile_set = ExtResource("2_osu2p")
 
 [node name="Player" parent="." instance=ExtResource("3_bkdr1")]
 position = Vector2(66, -74)
+
+[node name="Spikes" parent="." instance=ExtResource("4_58o6h")]
+position = Vector2(182, -48)
+
+[node name="Spikes2" parent="." instance=ExtResource("4_58o6h")]
+position = Vector2(368, -48)
+
+[node name="Spikes3" parent="." instance=ExtResource("4_58o6h")]
+position = Vector2(437, -48)
