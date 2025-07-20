@@ -8,22 +8,37 @@ enum State {
 	FALL,
 }
 
-const STOP_ACCEL := 5.0
-const MOVE_ACCEL := 10.0
-const STOP_SPEED_THRESHOLD := 100
+const ANIMATIONS: Dictionary[int, String] = {
+	State.IDLE: "idle",
+	State.RUN: "run",
+	State.JUMP: "jump",
+	State.FALL: "fall",
+}
 
 @export_group("Movement")
 @export var speed := 200.0
+@export var stop_speed_threshold := 100.0
+@export var fall_off_y := 100.0
 
 @export_group("Jumping")
-@export var jump_power := 300.0
+@export var jump_power := 350.0
 @export var max_fall_speed := 400.0
 
-var _move_direction := 0.0
-var _jump_just_pressed := false
+@export_group("Acceleration")
+@export var stop_acceleration := 5.0
+@export var move_acceleration := 10.0
+
 var _state := State.IDLE
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
+func _get_input_direction() -> float:
+	return Input.get_axis("left", "right")
+
+
+func _is_jump_pressed() -> bool:
+	return Input.is_action_just_pressed("jump")
 
 
 func _apply_gravity(delta: float) -> void:
@@ -31,26 +46,9 @@ func _apply_gravity(delta: float) -> void:
 	velocity.y = min(velocity.y, max_fall_speed)
 
 
-func _get_input() -> void:
-	_move_direction = Input.get_axis("left", "right")
-	_jump_just_pressed = Input.is_action_just_pressed("jump")
-
-
-func _apply_movement(delta: float) -> void:
-	if is_on_floor():
-		if _jump_just_pressed:
-			velocity.y = -jump_power
-	else:
-		_apply_gravity(delta)
-
-	var target_speed := _move_direction * speed
-	var accel := STOP_ACCEL
-
-	if _move_direction != 0.0:
-		_sprite.flip_h = _move_direction < 0
-		accel = MOVE_ACCEL
-
-	velocity.x = move_toward(velocity.x, target_speed, accel)
+func _handle_jump() -> void:
+	if is_on_floor() and _is_jump_pressed():
+		velocity.y = -jump_power
 
 
 func _set_state(new_state: State) -> void:
@@ -58,21 +56,12 @@ func _set_state(new_state: State) -> void:
 		return
 
 	_state = new_state
-
-	match _state:
-		State.IDLE:
-			_sprite.play("idle")
-		State.RUN:
-			_sprite.play("run")
-		State.JUMP:
-			_sprite.play("jump")
-		State.FALL:
-			_sprite.play("fall")
+	_sprite.play(ANIMATIONS[_state])
 
 
-func _update_state() -> void:
+func _update_state(is_moving: bool) -> void:
 	if is_on_floor():
-		if _move_direction == 0 and abs(velocity.x) < STOP_SPEED_THRESHOLD:
+		if !is_moving and abs(velocity.x) < stop_speed_threshold:
 			_set_state(State.IDLE)
 		else:
 			_set_state(State.RUN)
@@ -83,15 +72,35 @@ func _update_state() -> void:
 			_set_state(State.FALL)
 
 
+func _handle_horizontal_move() -> void:
+	var input_direction := _get_input_direction()
+	var target_speed := input_direction * speed
+	var acceleration := move_acceleration if input_direction != 0.0 else stop_acceleration
+
+	velocity.x = move_toward(velocity.x, target_speed, acceleration)
+
+	var is_moving := input_direction != 0.0
+
+	if is_moving:
+		_sprite.flip_h = input_direction < 0
+
+	_update_state(is_moving)
+
+
+func _emit_player_hit() -> void:
+	SignalManager.on_player_hit.emit()
+
+
 func _fallen_off() -> void:
-	if global_position.y > 100:
-		SignalManager.on_player_hit.emit()
+	if global_position.y > fall_off_y:
+		_emit_player_hit()
 
 
 func _physics_process(delta: float) -> void:
-	_get_input()
-	_apply_movement(delta)
-	_update_state()
+	_handle_jump()
+	_apply_gravity(delta)
+	_handle_horizontal_move()
+	_fallen_off()
 	move_and_slide()
 
 
@@ -100,4 +109,4 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		return
 
 	velocity = Vector2.ZERO
-	SignalManager.on_player_hit.emit()
+	_emit_player_hit()
