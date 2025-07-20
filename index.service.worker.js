@@ -4,9 +4,9 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1752969295|5384076';
+const CACHE_VERSION = '1752970995|5713276';
 /** @type {string} */
-const CACHE_PREFIX = 'New Game Project-sw-cache-';
+const CACHE_PREFIX = 'Godot 2D Platfor-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 /** @type {string} */
 const OFFLINE_URL = 'index.offline.html';
