@@ -12,7 +12,10 @@ const STOP_ACCEL := 5.0
 const MOVE_ACCEL := 10.0
 const STOP_SPEED_THRESHOLD := 100
 
+@export_group("Movement")
 @export var speed := 200.0
+
+@export_group("Jumping")
 @export var jump_power := 300.0
 @export var max_fall_speed := 400.0
 
