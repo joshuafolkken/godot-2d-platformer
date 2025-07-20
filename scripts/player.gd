@@ -8,41 +8,46 @@ enum State {
 	FALL,
 }
 
-@export var _move_speed := 200.0
-@export var _jump_forced := 300.0
-@export var _max_y_velocity := 400.0
+const STOP_ACCEL := 5.0
+const MOVE_ACCEL := 10.0
+const STOP_SPEED_THRESHOLD := 100
 
-var _direction := Vector2.ZERO
+@export var speed := 200.0
+@export var jump_power := 300.0
+@export var max_fall_speed := 400.0
+
+var _move_direction := 0.0
+var _jump_just_pressed := false
 var _state := State.IDLE
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _apply_gravity(delta: float) -> void:
-	var gravity_accel := get_gravity().y * delta
-	velocity.y += gravity_accel
-
-	if velocity.y > _max_y_velocity:
-		velocity.y = _max_y_velocity
+	velocity.y += get_gravity().y * delta
+	velocity.y = min(velocity.y, max_fall_speed)
 
 
 func _get_input() -> void:
-	_direction.x = Input.get_axis("left", "right")
-	_direction.y = 1 if Input.is_action_just_pressed("jump") else 0
+	_move_direction = Input.get_axis("left", "right")
+	_jump_just_pressed = Input.is_action_just_pressed("jump")
 
 
 func _apply_movement(delta: float) -> void:
 	if is_on_floor():
-		if _direction.y > 0:
-			velocity.y = -_jump_forced
+		if _jump_just_pressed:
+			velocity.y = -jump_power
 	else:
 		_apply_gravity(delta)
 
-	if _direction.x:
-		_sprite.flip_h = _direction.x < 0
-		velocity.x = _direction.x * _move_speed
-	else:
-		velocity.x = 0
+	var target_speed := _move_direction * speed
+	var accel := STOP_ACCEL
+
+	if _move_direction != 0.0:
+		_sprite.flip_h = _move_direction < 0
+		accel = MOVE_ACCEL
+
+	velocity.x = move_toward(velocity.x, target_speed, accel)
 
 
 func _set_state(new_state: State) -> void:
@@ -64,12 +69,12 @@ func _set_state(new_state: State) -> void:
 
 func _update_state() -> void:
 	if is_on_floor():
-		if velocity.x == 0:
+		if _move_direction == 0 and abs(velocity.x) < STOP_SPEED_THRESHOLD:
 			_set_state(State.IDLE)
 		else:
 			_set_state(State.RUN)
 	else:
-		if velocity.y > 0:
+		if velocity.y < 0:
 			_set_state(State.JUMP)
 		else:
 			_set_state(State.FALL)
