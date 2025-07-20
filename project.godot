@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-config/version="0.48.1"
+config/name="Godot 2D Platformer"
+config/version="0.1"
 run/main_scene="uid://djcdy0d718ei3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
