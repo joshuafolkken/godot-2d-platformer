@@ -26,4 +26,4 @@ func _on_game_complete() -> void:
 func _process(_delta: float) -> void:
 	if background.visible:
 		if Input.is_action_just_pressed(ActionName.JUMP):
-			print("MENU")
+			GameManager.load_main_scene()
