@@ -12,13 +12,14 @@ config_version=5
 
 config/name="Godot 2D Platformer"
 config/version="0.1"
-run/main_scene="uid://d15y6ecwe474x"
+run/main_scene="uid://dfddsmhm3n04y"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalManager="*res://scripts/singletons/signal_manager.gd"
+GameManager="*res://scripts/singletons/game_manager.gd"
 
 [debug]
 
