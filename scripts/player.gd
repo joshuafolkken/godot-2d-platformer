@@ -8,11 +8,11 @@ enum State {
 	FALL,
 }
 
-const ANIMATIONS: Dictionary[int, String] = {
-	State.IDLE: "idle",
-	State.RUN: "run",
-	State.JUMP: "jump",
-	State.FALL: "fall",
+const ANIMATIONS: Dictionary[State, String] = {
+	State.IDLE: AnimationName.IDLE,
+	State.RUN: AnimationName.RUN,
+	State.JUMP: AnimationName.JUMP,
+	State.FALL: AnimationName.FALL,
 }
 
 @export_group("Movement")
@@ -28,17 +28,17 @@ const ANIMATIONS: Dictionary[int, String] = {
 @export var stop_acceleration := 5.0
 @export var move_acceleration := 10.0
 
-var _state := State.IDLE
+var _current_state := State.IDLE
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _get_input_direction() -> float:
-	return Input.get_axis("left", "right")
+	return Input.get_axis(ActionName.LEFT, ActionName.RIGHT)
 
 
 func _is_jump_pressed() -> bool:
-	return Input.is_action_just_pressed("jump")
+	return Input.is_action_just_pressed(ActionName.JUMP)
 
 
 func _apply_gravity(delta: float) -> void:
@@ -52,11 +52,11 @@ func _handle_jump() -> void:
 
 
 func _set_state(new_state: State) -> void:
-	if new_state == _state:
+	if new_state == _current_state:
 		return
 
-	_state = new_state
-	_sprite.play(ANIMATIONS[_state])
+	_current_state = new_state
+	_sprite.play(ANIMATIONS[_current_state])
 
 
 func _update_state(is_moving: bool) -> void:
@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if !area.is_in_group("trap"):
+	if !area.is_in_group(GroupName.TRAP):
 		return
 
 	velocity = Vector2.ZERO
