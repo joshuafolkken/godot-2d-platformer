@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfddsmhm3n04y"]
+
+[ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scripts/main.gd" id="1_o5qli"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
+font_size = 120
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+font_size = 40
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Platformer"
+label_settings = SubResource("LabelSettings_0wfyh")
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Press Space to Start"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
