@@ -110,3 +110,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 	velocity = Vector2.ZERO
 	_emit_player_hit()
+
+
+func reset() -> void:
+	_sprite.flip_h = false
