@@ -22,13 +22,16 @@ const ANIMATIONS: Dictionary[State, String] = {
 @export var fall_off_y := 100.0
 
 @export_group("Jumping")
-@export var jump_power := 350.0
+@export var jump_power := 300.0
+@export var jump_hold_time := 0.3
 @export var max_fall_speed := 400.0
+@export var gravity_ratio := 2
 
 @export_group("Acceleration")
 @export var stop_acceleration := 5.0
 @export var move_acceleration := 10.0
 
+var _jump_time := 0.0
 var _current_state := State.IDLE
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -38,8 +41,17 @@ func _get_input_direction() -> float:
 	return Input.get_axis(ActionName.LEFT, ActionName.RIGHT)
 
 
+func _can_jump(delta: float) -> bool:
+	if is_on_floor():
+		_jump_time = 0
+	else:
+		_jump_time += delta
+
+	return _jump_time <= jump_hold_time
+
+
 func _is_jump_pressed() -> bool:
-	return Input.is_action_just_pressed(ActionName.JUMP)
+	return Input.is_action_pressed(ActionName.JUMP)
 
 
 func _is_dash_pressed() -> bool:
@@ -47,13 +59,15 @@ func _is_dash_pressed() -> bool:
 
 
 func _apply_gravity(delta: float) -> void:
-	velocity.y += get_gravity().y * delta
+	velocity.y += get_gravity().y * gravity_ratio * delta
 	velocity.y = min(velocity.y, max_fall_speed)
 
 
-func _handle_jump() -> void:
-	if is_on_floor() and _is_jump_pressed():
-		velocity.y = -jump_power
+func _handle_jump(delta: float) -> void:
+	if _can_jump(delta) and _is_jump_pressed():
+		velocity.y = -((1 + _jump_time) * jump_power)
+	else:
+		_apply_gravity(delta)
 
 
 func _set_state(new_state: State) -> void:
@@ -103,8 +117,7 @@ func _fallen_off() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_handle_jump()
-	_apply_gravity(delta)
+	_handle_jump(delta)
 	_handle_horizontal_move()
 	_fallen_off()
 	move_and_slide()
