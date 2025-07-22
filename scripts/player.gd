@@ -16,7 +16,8 @@ const ANIMATIONS: Dictionary[State, String] = {
 }
 
 @export_group("Movement")
-@export var speed := 200.0
+@export var normal_speed := 150.0
+@export var dash_speed := 300.0
 @export var stop_speed_threshold := 100.0
 @export var fall_off_y := 100.0
 
@@ -39,6 +40,10 @@ func _get_input_direction() -> float:
 
 func _is_jump_pressed() -> bool:
 	return Input.is_action_just_pressed(ActionName.JUMP)
+
+
+func _is_dash_pressed() -> bool:
+	return Input.is_action_pressed(ActionName.DASH)
 
 
 func _apply_gravity(delta: float) -> void:
@@ -74,6 +79,7 @@ func _update_state(is_moving: bool) -> void:
 
 func _handle_horizontal_move() -> void:
 	var input_direction := _get_input_direction()
+	var speed := dash_speed if _is_dash_pressed() else normal_speed
 	var target_speed := input_direction * speed
 	var acceleration := move_acceleration if input_direction != 0.0 else stop_acceleration
 

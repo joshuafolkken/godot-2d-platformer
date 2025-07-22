@@ -59,6 +59,6 @@ label_settings = SubResource("LabelSettings_0wfyh")
 
 [node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Press Space to Start"
+text = "Press F to Start"
 label_settings = SubResource("LabelSettings_sugp2")
 horizontal_alignment = 1
