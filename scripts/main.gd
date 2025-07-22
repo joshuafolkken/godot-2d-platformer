@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(ActionName.JUMP):
+	if Input.is_action_just_pressed(ActionName.F):
 		GameManager.load_level_scene()
