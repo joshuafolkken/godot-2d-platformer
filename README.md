@@ -1,5 +1,11 @@
 # <img src="https://godotengine.org/favicon.ico" width="28" height="28" style="vertical-align: middle;"> godot-2d-platformer
 
+![Screenshot](./docs/screenshot.png)
+
+I studied Godot by reading the tutorial “[A Super Introductory Guide: Experience the Fun of Game Development! Creating a 2D Platformer with Godot](https://zenn.dev/hathle/books/godot-platfomer-book)” and made some minor arrangements to it.
+
+I tried implementing dash and high jump by holding the button, just like in Mario! I even added double jump in midair!
+
 [![License](https://img.shields.io/github/license/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/blob/main/LICENSE)
 [![Release](https://img.shields.io/github/v/release/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/releases)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/issues?q=is%3Aissue%20state%3Aclosed)
@@ -8,12 +14,6 @@
 [![Auto Tag](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/auto-tag.yml/badge.svg)](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/auto-tag.yml)
 [![Deploy](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/deploy-web.yml)
 [![X](https://img.shields.io/badge/Follow-%40joshuafolkken-purple?logo=x&logoColor=fffffflabelColor=)](https://x.com/joshuafolkken)
-
-## What is godot-2d-platformer?
-
-I studied Godot by reading the tutorial “[A Super Introductory Guide: Experience the Fun of Game Development! Creating a 2D Platformer with Godot](https://zenn.dev/hathle/books/godot-platfomer-book)” and made some minor arrangements to it.
-
-I tried implementing dash and high jump by holding the button, just like in Mario! I even added double jump in midair!
 
 ## How to Play
 
