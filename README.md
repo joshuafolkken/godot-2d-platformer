@@ -1,133 +1,36 @@
-# <img src="https://godotengine.org/favicon.ico" width="28" height="28" style="vertical-align: middle;"> godot-project-template
+# <img src="https://godotengine.org/favicon.ico" width="28" height="28" style="vertical-align: middle;"> godot-2d-platformer
 
-[![License](https://img.shields.io/github/license/joshuafolkken/godot-project-template)](https://github.com/joshuafolkken/godot-project-template/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/joshuafolkken/godot-project-template)](https://github.com/joshuafolkken/godot-project-template/releases)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/joshuafolkken/godot-project-template)](https://github.com/joshuafolkken/godot-project-template/issues?q=is%3Aissue%20state%3Aclosed)
-![GitHub repo size](https://img.shields.io/github/repo-size/joshuafolkken/godot-project-template)
-[![CI](https://github.com/joshuafolkken/godot-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/joshuafolkken/godot-project-template/actions/workflows/ci.yml)
-[![Auto Tag](https://github.com/joshuafolkken/godot-project-template/actions/workflows/auto-tag.yml/badge.svg)](https://github.com/joshuafolkken/godot-project-template/actions/workflows/auto-tag.yml)
-[![Deploy](https://github.com/joshuafolkken/godot-project-template/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/joshuafolkken/godot-project-template/actions/workflows/deploy-web.yml)
+[![License](https://img.shields.io/github/license/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/releases)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/joshuafolkken/godot-2d-platformer)](https://github.com/joshuafolkken/godot-2d-platformer/issues?q=is%3Aissue%20state%3Aclosed)
+![GitHub repo size](https://img.shields.io/github/repo-size/joshuafolkken/godot-2d-platformer)
+[![CI](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/ci.yml/badge.svg)](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/ci.yml)
+[![Auto Tag](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/auto-tag.yml/badge.svg)](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/auto-tag.yml)
+[![Deploy](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/joshuafolkken/godot-2d-platformer/actions/workflows/deploy-web.yml)
 [![X](https://img.shields.io/badge/Follow-%40joshuafolkken-purple?logo=x&logoColor=fffffflabelColor=)](https://x.com/joshuafolkken)
 
-<div align="center">
-A<br/>
-Project Template<br/>
-for<br/>
+## What is godot-2d-platformer?
 
-<a href="https://godotengine.org">
-	<img src="https://godotengine.org/assets/press/logo_large_color_dark.png" width="400" alt="Godot Engine logo">
-</a><br/>
+I studied Godot by reading the tutorial “[A Super Introductory Guide: Experience the Fun of Game Development! Creating a 2D Platformer with Godot](https://zenn.dev/hathle/books/godot-platfomer-book)” and made some minor arrangements to it.
 
-[![Godot 4.4.1](https://img.shields.io/badge/Godot-v4.4.1-%23478cbf?logo=godot-engine&logoColor=eee&labelColor=)](https://godotengine.org/)
+I tried implementing dash and high jump by holding the button, just like in Mario! I even added double jump in midair!
 
-</div>
+## How to Play
 
-## What is godot-project-template?
-
-This is a collection of essential resources for Godot projects.
+- Move: A / D, <- / ->
+- Jump: B, SPACE
+- DASH: V, SHIFT
+- START: F
+- RESET: R
 
 ## Tech Stack
 
-- Game Engine: [Godot](https://godotengine.org/) 4.4.1
-- Programming Language: [GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html)
+- Game Engine: [Godot](https://godotengine.org/) 4.4.1-stable
+- Programming Language: [Typed GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html)
 - Testing Framework: [GdUnit4](https://github.com/MikeSchulze/gdUnit4)
 - Git Hooks: [Lefthook](https://github.com/evilmartians/lefthook)
 - IDE: [Cursor](https://www.cursor.com/) (VSCode Alternative)
 - VSC: [GitHub](https://github.com/)
-
-## Main Features
-
-### Directories
-
-- assets
-- scenes
-- scripts
-- tests
-
-### VSCode
-
-- Settings
-- Recommended Extensions
-
-### GDScript
-
-- Typed GDScript
-- Warnings for Typed GDScript
-- Localization
-
-### Code Formatting
-
-- gdlint
-- gdformat
-
-### Code Spell Checker
-
-- VSCode Extensions
-- Dictionaries
-
-### Tests
-
-- GdUnit4 Sample Tests
-- GitHub Workflow
-- Shell Script
-
-### Export
-
-- Web Export Presets
-- Custom HTML Template
-- Twitter Card
-
-### Git
-
-- Custom .gitignore
-- Custom .gitattributes
-
-### Git Hooks
-
-- Lefthook
-- pre-commit
-  - Prevent Main Push
-  - GDScript Format
-  - Spell Check
-- pre-push
-  - Check Merge Conflicts
-  - GDScript lint
-  - GDScript test
-
-### Pull Request
-
-- Pull Request Template
-- Branch Ruleset
-- Status Checks
-
-### GitHub Workflows
-
-- Auto Tag on version changed
-- CI
-  - Lint and format
-  - Unit test
-- Deploy Web
-
-### Security
-
-- Code Security
-- Security Policy
-
-### GitHub Repository
-
-- Repository Settings
-- release.yml
-- About
-  - Description
-  - Website
-  - Topics
-
-### Docs
-
-- README.md
-  - Show Badges
-- LICENSE
-- SECURITY.md
 
 ## You're Welcome To
 
