@@ -4,12 +4,12 @@ extends StaticBody2D
 @onready var spawn_maker: Marker2D = $Marker2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	SignalManager.on_player_hit.connect(_on_player_hit)
-	_on_player_hit()
-
-
-func _on_player_hit() -> void:
+func reset_player_position() -> void:
 	player.global_position = spawn_maker.global_position
 	player.reset()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameManager.player_respawned.connect(reset_player_position)
+	reset_player_position()

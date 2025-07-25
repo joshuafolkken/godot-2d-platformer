@@ -1,6 +1,8 @@
 extends Control
 
 @onready var background: ColorRect = $Background
+@onready var congrats: VBoxContainer = $Background/Congrats
+@onready var game_over: VBoxContainer = $Background/GameOver
 
 
 func hide_hud() -> void:
@@ -16,14 +18,24 @@ func show_hud() -> void:
 func _ready() -> void:
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	hide_hud()
-	SignalManager.on_game_complete.connect(_on_game_complete)
+	SignalManager.game_completed.connect(_on_game_completed)
+	GameManager.player_died.connect(_on_player_died)
 
 
-func _on_game_complete() -> void:
+func _on_game_completed() -> void:
+	show_hud()
+
+
+func _on_player_died() -> void:
+	congrats.visible = false
+	game_over.visible = true
 	show_hud()
 
 
 func _process(_delta: float) -> void:
 	if background.visible:
 		if Input.is_action_just_pressed(ActionName.F):
-			GameManager.load_next_stage()
+			if congrats.visible:
+				GameManager.load_next_stage()
+			else:
+				GameManager.load_main_scene()

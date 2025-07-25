@@ -1,6 +1,12 @@
 extends Node
 
+signal life_changed
+signal player_respawned
+signal player_died
+
 const INITIAL_STAGE_INDEX := -1
+const INITIAL_LIFE_COUNT := 3
+
 const MAIN_SCENE: PackedScene = preload("res://scenes/main.tscn")
 
 const STAGES: Array[String] = [
@@ -16,6 +22,7 @@ const STAGES: Array[String] = [
 ]
 
 var _current_stage := INITIAL_STAGE_INDEX
+var _current_life := INITIAL_LIFE_COUNT
 
 
 func get_version() -> String:
@@ -26,13 +33,18 @@ func get_stage() -> String:
 	return "Stage: %d/%d" % [_current_stage + 1, STAGES.size()]
 
 
+func get_life() -> String:
+	return "Life: %d" % _current_life
+
+
 func _change_scene(packed_scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(packed_scene)
 
 
 func load_main_scene() -> void:
-	_change_scene(MAIN_SCENE)
 	_current_stage = INITIAL_STAGE_INDEX
+	_current_life = INITIAL_LIFE_COUNT
+	_change_scene(MAIN_SCENE)
 
 
 func load_stage(number: int) -> void:
@@ -47,3 +59,17 @@ func load_stage(number: int) -> void:
 func load_next_stage() -> void:
 	_current_stage += 1
 	load_stage(_current_stage)
+
+
+func _on_player_hit() -> void:
+	_current_life -= 1
+	life_changed.emit()
+
+	if _current_life <= 0:
+		player_died.emit()
+	else:
+		player_respawned.emit()
+
+
+func _ready() -> void:
+	SignalManager.player_hit.connect(_on_player_hit)

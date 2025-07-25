@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://drfk74s8f3rrj"]
+[gd_scene load_steps=5 format=3 uid="uid://drfk74s8f3rrj"]
 
 [ext_resource type="Script" uid="uid://w5lv34ogiswi" path="res://scripts/hud.gd" id="1_ahhtf"]
 
@@ -14,6 +14,14 @@ shadow_offset = Vector2(5, 5)
 font_size = 40
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahhtf"]
+font_size = 100
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(5, 5)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -33,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="Congrats" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,13 +55,41 @@ offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Background/VBoxContainer"]
+[node name="Label" type="Label" parent="Background/Congrats"]
 layout_mode = 2
 text = "Congraturations!"
 label_settings = SubResource("LabelSettings_oo0fn")
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Background/VBoxContainer"]
+[node name="Label2" type="Label" parent="Background/Congrats"]
 layout_mode = 2
 text = "Press F to Next Stage"
+label_settings = SubResource("LabelSettings_5ysmq")
+horizontal_alignment = 1
+
+[node name="GameOver" type="VBoxContainer" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -78.5
+offset_right = 400.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/GameOver"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_ahhtf")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Background/GameOver"]
+layout_mode = 2
+text = "Press F to Return"
 label_settings = SubResource("LabelSettings_5ysmq")
 horizontal_alignment = 1
