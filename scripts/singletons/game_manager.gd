@@ -1,5 +1,6 @@
 extends Node
 
+const INITIAL_STAGE_INDEX := -1
 const MAIN_SCENE: PackedScene = preload("res://scenes/main.tscn")
 
 const STAGES: Array[String] = [
@@ -11,9 +12,10 @@ const STAGES: Array[String] = [
 	"dash-jump-2",
 	"island",
 	"island-2",
+	"final",
 ]
 
-var _current_stage := -1
+var _current_stage := INITIAL_STAGE_INDEX
 
 
 func get_version() -> String:
@@ -30,7 +32,7 @@ func _change_scene(packed_scene: PackedScene) -> void:
 
 func load_main_scene() -> void:
 	_change_scene(MAIN_SCENE)
-	_current_stage = 0
+	_current_stage = INITIAL_STAGE_INDEX
 
 
 func load_stage(number: int) -> void:
