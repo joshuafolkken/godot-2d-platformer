@@ -82,7 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odvaq"]
-size = Vector2(26.5, 39)
+size = Vector2(3, 39)
 
 [node name="Goal" type="Area2D"]
 collision_layer = 0
@@ -95,7 +95,7 @@ autoplay = "default"
 frame_progress = 0.123067
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.25, 12)
+position = Vector2(-8.5, 12)
 shape = SubResource("RectangleShape2D_odvaq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

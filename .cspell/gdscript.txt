@@ -1,3 +1,4 @@
 elif
 onready
 randf
+tscn
