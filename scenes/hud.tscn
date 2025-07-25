@@ -54,6 +54,6 @@ label_settings = SubResource("LabelSettings_oo0fn")
 
 [node name="Label2" type="Label" parent="Background/VBoxContainer"]
 layout_mode = 2
-text = "Press Space to Menu"
+text = "Press F to Next Stage"
 label_settings = SubResource("LabelSettings_5ysmq")
 horizontal_alignment = 1
