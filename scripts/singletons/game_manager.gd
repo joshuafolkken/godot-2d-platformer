@@ -20,6 +20,10 @@ func get_version() -> String:
 	return "v%s" % ProjectSettings.get_setting("application/config/version")
 
 
+func get_stage() -> String:
+	return "Stage: %d/%d" % [_current_stage + 1, STAGES.size()]
+
+
 func _change_scene(packed_scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(packed_scene)
 
