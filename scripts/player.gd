@@ -108,7 +108,7 @@ func _handle_horizontal_move() -> void:
 
 
 func _emit_player_hit() -> void:
-	SignalManager.on_player_hit.emit()
+	SignalManager.player_hit.emit()
 
 
 func _fallen_off() -> void:
