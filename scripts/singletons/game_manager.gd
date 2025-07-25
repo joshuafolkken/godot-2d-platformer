@@ -7,6 +7,7 @@ const STAGES: Array[String] = [
 	"walk",
 	"jump",
 	"2-jumps",
+	"3-jumps",
 	"dash-jump",
 ]
 
