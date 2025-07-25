@@ -10,6 +10,8 @@ const STAGES: Array[String] = [
 	"3-jumps",
 	"dash-jump",
 	"dash-jump-2",
+	"Island",
+	"Island-2",
 ]
 
 var _current_stage := -1
