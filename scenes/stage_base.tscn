@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://j003r0ux6nbl"]
+[gd_scene load_steps=12 format=4 uid="uid://j003r0ux6nbl"]
 
 [ext_resource type="Script" uid="uid://crcfpc6qyua0k" path="res://scripts/level_base.gd" id="1_dd2yu"]
 [ext_resource type="PackedScene" uid="uid://hmqq4pbyb36n" path="res://scenes/camera.tscn" id="2_7rti2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/version.tscn" id="9_rdlus"]
 [ext_resource type="Texture2D" uid="uid://bkn5m1wjaq541" path="res://assets/Background/Green.png" id="9_u7iro"]
 [ext_resource type="PackedScene" uid="uid://drfk74s8f3rrj" path="res://scenes/hud.tscn" id="10_8xnx5"]
+[ext_resource type="PackedScene" uid="uid://ct2dbo5n5mroc" path="res://scenes/stage.tscn" id="11_rmpb6"]
 
 [node name="StageBase" type="Node2D"]
 script = ExtResource("1_dd2yu")
@@ -41,3 +42,5 @@ texture = ExtResource("9_u7iro")
 [node name="Version" parent="CanvasLayer" instance=ExtResource("9_rdlus")]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("10_8xnx5")]
+
+[node name="Stage" parent="CanvasLayer" instance=ExtResource("11_rmpb6")]
