@@ -1,7 +1,6 @@
 extends Node
 
 const MAIN_SCENE: PackedScene = preload("res://scenes/main.tscn")
-const LEVEL_SCENE: PackedScene = preload("res://scenes/level_base.tscn")
 
 const STAGES: Array[String] = [
 	"walk",
@@ -13,6 +12,10 @@ const STAGES: Array[String] = [
 ]
 
 var _current_stage := -1
+
+
+func get_version() -> String:
+	return "v%s" % ProjectSettings.get_setting("application/config/version")
 
 
 func _change_scene(packed_scene: PackedScene) -> void:
