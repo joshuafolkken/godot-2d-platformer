@@ -18,6 +18,8 @@ const STAGES: Array[String] = [
 	"dash-jump-2",
 	"island",
 	"island-2",
+	"midair-jump",
+	"midair-jump-2",
 	"final",
 ]
 
