@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c2mu03ncq04o1"]
 
-[ext_resource type="Script" uid="uid://dct2n4igqopdt" path="res://scripts/goal.gd" id="1_sx1j4"]
+[ext_resource type="Script" uid="uid://dct2n4igqopdt" path="res://scenes/entities/goal.gd" id="1_sx1j4"]
 [ext_resource type="Texture2D" uid="uid://bhvcjymo0ukwi" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="2_w3gav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvyg3"]

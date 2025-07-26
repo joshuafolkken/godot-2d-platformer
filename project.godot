@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Godot 2D Platformer"
-config/version="0.9.0"
+config/version="0.10.0"
 run/main_scene="uid://dfddsmhm3n04y"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalManager="*res://scripts/singletons/signal_manager.gd"
-GameManager="*res://scripts/singletons/game_manager.gd"
+SignalManager="*res://scripts/global/signal_manager.gd"
+GameManager="*res://scripts/global/game_manager.gd"
 
 [debug]
 

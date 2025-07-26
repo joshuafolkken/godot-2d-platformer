@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj56pxpufhtjb"]
+[gd_scene load_steps=3 format=3 uid="uid://ct2dbo5n5mroc"]
 
-[ext_resource type="Script" uid="uid://bwg6chlniafk6" path="res://scripts/life.gd" id="1_tf86k"]
+[ext_resource type="Script" uid="uid://s8igyrc4j5j" path="res://scenes/ui/stage.gd" id="1_8rem4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rdlus"]
 font_size = 24
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Life" type="Control"]
+[node name="Stage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_tf86k")
+script = ExtResource("1_8rem4")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 104.0
+offset_top = 64.0
 offset_right = 200.0
-offset_bottom = 131.0
-text = "Life: ##"
+offset_bottom = 91.0
+text = "Stage: XX/YY"
 label_settings = SubResource("LabelSettings_rdlus")
