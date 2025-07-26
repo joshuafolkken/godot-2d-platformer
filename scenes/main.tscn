@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=4 uid="uid://dfddsmhm3n04y"]
 
-[ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/background.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="2_0wfyh"]
 [ext_resource type="TileSet" uid="uid://c52765ejv3ad7" path="res://assets/tilemap.tres" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://hmqq4pbyb36n" path="res://scenes/camera.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/player.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/goal.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/version.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://hmqq4pbyb36n" path="res://scenes/ui/camera.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/entities/player.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/entities/goal.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/ui/version.tscn" id="7_o6xl0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
 font_size = 120

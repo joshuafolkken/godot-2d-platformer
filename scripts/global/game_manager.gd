@@ -52,7 +52,7 @@ func load_stage(number: int) -> void:
 		load_main_scene()
 		return
 
-	var stage_scene: PackedScene = load("res://scenes/stage-%s.tscn" % STAGES[number])
+	var stage_scene: PackedScene = load("res://scenes/stages/stage-%s.tscn" % STAGES[number])
 	_change_scene(stage_scene)
 
 

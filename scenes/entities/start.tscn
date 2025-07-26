@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dhbwng1elwhg8"]
 
-[ext_resource type="Script" uid="uid://c8khqj4lm683f" path="res://scripts/start.gd" id="1_u80x2"]
+[ext_resource type="Script" uid="uid://c8khqj4lm683f" path="res://scenes/entities/start.gd" id="1_u80x2"]
 [ext_resource type="Texture2D" uid="uid://cbbjonkbomxw7" path="res://assets/Items/Checkpoints/Start/Start (Moving) (64x64).png" id="2_bodal"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdmts"]
