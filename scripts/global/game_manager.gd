@@ -7,7 +7,7 @@ signal player_died
 const INITIAL_STAGE_INDEX := -1
 const INITIAL_LIFE_COUNT := 3
 
-const MAIN_SCENE: PackedScene = preload("res://scenes/main.tscn")
+const TITLE_SCENE: PackedScene = preload("res://scenes/title.tscn")
 
 const STAGES: Array[String] = [
 	"walk",
@@ -41,15 +41,15 @@ func _change_scene(packed_scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(packed_scene)
 
 
-func load_main_scene() -> void:
+func load_title_scene() -> void:
 	_current_stage = INITIAL_STAGE_INDEX
 	_current_life = INITIAL_LIFE_COUNT
-	_change_scene(MAIN_SCENE)
+	_change_scene(TITLE_SCENE)
 
 
 func load_stage(number: int) -> void:
 	if number < 0 or number >= STAGES.size():
-		load_main_scene()
+		load_title_scene()
 		return
 
 	var stage_scene: PackedScene = load("res://scenes/stages/stage-%s.tscn" % STAGES[number])

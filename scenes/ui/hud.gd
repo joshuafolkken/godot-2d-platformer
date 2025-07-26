@@ -38,4 +38,4 @@ func _process(_delta: float) -> void:
 			if congrats.visible:
 				GameManager.load_next_stage()
 			else:
-				GameManager.load_main_scene()
+				GameManager.load_title_scene()
