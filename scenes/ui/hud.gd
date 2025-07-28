@@ -34,7 +34,7 @@ func _on_player_died() -> void:
 
 func _process(_delta: float) -> void:
 	if background.visible:
-		if Input.is_action_just_pressed(ActionName.F):
+		if Input.is_action_just_pressed(ActionName.INTERACT):
 			if congrats.visible:
 				GameManager.load_next_stage()
 			else:
