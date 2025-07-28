@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dfddsmhm3n04y"]
+[gd_scene load_steps=15 format=4 uid="uid://dfddsmhm3n04y"]
 
 [ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scenes/title.gd" id="1_yql1r"]
 [ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="2_ia1n6"]
@@ -16,10 +16,28 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.501961)
 shadow_offset = Vector2(5, 5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
-font_size = 40
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w65of"]
+bg_color = Color(0.376471, 0.376471, 0.376471, 0.752941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yql1r"]
+bg_color = Color(0.376471, 0.376471, 0.376471, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia1n6"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.376471, 0.376471, 0.376471, 0.25098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiwto"]
+bg_color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[sub_resource type="Theme" id="Theme_yql1r"]
+Button/font_sizes/font_size = 40
+Button/styles/focus = SubResource("StyleBoxFlat_w65of")
+Button/styles/hover = SubResource("StyleBoxFlat_yql1r")
+Button/styles/normal = SubResource("StyleBoxFlat_ia1n6")
+Button/styles/pressed = SubResource("StyleBoxFlat_hiwto")
 
 [sub_resource type="LabelSettings" id="LabelSettings_yql1r"]
 font_size = 28
@@ -47,29 +65,45 @@ position = Vector2(482, -96)
 
 [node name="Version" parent="CanvasLayer" instance=ExtResource("7_7af2g")]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -296.0
+offset_top = -192.0
+offset_right = 304.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
 text = "Platformer"
 label_settings = SubResource("LabelSettings_0wfyh")
 
-[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer/MainMenu"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Press F to Start"
-label_settings = SubResource("LabelSettings_sugp2")
-horizontal_alignment = 1
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MainMenu/MenuOptions"]
+layout_mode = 2
+focus_next = NodePath("../QuitButton")
+theme = SubResource("Theme_yql1r")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/MenuOptions"]
+layout_mode = 2
+theme = SubResource("Theme_yql1r")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 7
@@ -88,3 +122,6 @@ grow_vertical = 0
 layout_mode = 2
 text = "© 2025 Joshua Studio"
 label_settings = SubResource("LabelSettings_yql1r")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MenuOptions/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]
