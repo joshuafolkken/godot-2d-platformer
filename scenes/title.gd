@@ -1,12 +1,14 @@
 extends Node2D
 
 @onready var start_button: Button = $CanvasLayer/MainMenu/MenuOptions/StartButton
+@onready var quit_button: Button = $CanvasLayer/MainMenu/MenuOptions/QuitButton
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
 	start_button.grab_focus()
+	quit_button.visible = OS.get_name() != "Web"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
