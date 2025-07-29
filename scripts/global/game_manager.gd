@@ -46,6 +46,7 @@ func _change_scene(packed_scene: PackedScene) -> void:
 func load_title_scene() -> void:
 	_current_stage = INITIAL_STAGE_INDEX
 	_current_life = INITIAL_LIFE_COUNT
+	AudioManager.stop_all_sounds()
 	_change_scene(TITLE_SCENE)
 
 
@@ -61,6 +62,8 @@ func load_stage(number: int) -> void:
 func load_next_stage() -> void:
 	_current_stage += 1
 	load_stage(_current_stage)
+	AudioManager.stop_all_sounds()
+	AudioManager.play_ambient(AudioManager.SoundId.BGM)
 
 
 func _on_player_hit() -> void:

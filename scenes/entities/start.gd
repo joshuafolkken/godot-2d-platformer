@@ -7,6 +7,7 @@ extends StaticBody2D
 func reset_player_position() -> void:
 	player.global_position = spawn_maker.global_position
 	player.reset()
+	AudioManager.play_sfx(AudioManager.SoundId.START)
 
 
 # Called when the node enters the scene tree for the first time.

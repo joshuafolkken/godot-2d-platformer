@@ -19,7 +19,7 @@ const ANIMATIONS: Dictionary[State, String] = {
 @export var normal_speed := 150.0
 @export var dash_speed := 300.0
 @export var stop_speed_threshold := 100.0
-@export var fall_off_y := 100.0
+@export var fall_off_y := 0.0
 
 @export_group("Jumping")
 @export var jump_power := 300.0
@@ -31,8 +31,10 @@ const ANIMATIONS: Dictionary[State, String] = {
 @export var stop_acceleration := 5.0
 @export var move_acceleration := 10.0
 
+var _is_jumping := false
 var _jump_time := 0.0
 var _current_state := State.IDLE
+var _has_fall_off := false
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -43,6 +45,7 @@ func _get_input_direction() -> float:
 
 func _can_jump(delta: float) -> bool:
 	if is_on_floor():
+		_is_jumping = false
 		_jump_time = 0
 	else:
 		_jump_time += delta
@@ -66,6 +69,10 @@ func _apply_gravity(delta: float) -> void:
 func _handle_jump(delta: float) -> void:
 	if _can_jump(delta) and _is_jump_pressed():
 		velocity.y = -((1 + _jump_time) * jump_power)
+
+		if not _is_jumping:
+			AudioManager.play_sfx(AudioManager.SoundId.JUMP)
+			_is_jumping = true
 	else:
 		_apply_gravity(delta)
 
@@ -112,7 +119,14 @@ func _emit_player_hit() -> void:
 
 
 func _fallen_off() -> void:
+	if _has_fall_off:
+		return
+
 	if global_position.y > fall_off_y:
+		_has_fall_off = true
+
+		var player := await AudioManager.play_sfx(AudioManager.SoundId.FALL)
+		await player.finished
 		_emit_player_hit()
 
 
@@ -133,3 +147,4 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 func reset() -> void:
 	_sprite.flip_h = false
+	_has_fall_off = false
