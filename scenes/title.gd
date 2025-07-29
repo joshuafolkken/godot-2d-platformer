@@ -35,3 +35,11 @@ func _input(_event: InputEvent) -> void:
 		var current_focus := get_viewport().gui_get_focus_owner()
 		var next_focus := current_focus.find_prev_valid_focus()
 		next_focus.grab_focus()
+
+
+func _on_start_button_focus_entered() -> void:
+	AudioManager.play_sfx(AudioManager.SoundId.SYSTEM)
+
+
+func _on_quit_button_focus_entered() -> void:
+	AudioManager.play_sfx(AudioManager.SoundId.SYSTEM)

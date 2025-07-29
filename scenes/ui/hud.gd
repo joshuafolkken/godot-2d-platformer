@@ -24,12 +24,16 @@ func _ready() -> void:
 
 func _on_game_completed() -> void:
 	show_hud()
+	AudioManager.stop_sound_type(AudioManager.SoundType.AMBIENT)
+	AudioManager.play_sfx(AudioManager.SoundId.COMPLETE)
 
 
 func _on_player_died() -> void:
 	congrats.visible = false
 	game_over.visible = true
 	show_hud()
+	AudioManager.stop_sound_type(AudioManager.SoundType.AMBIENT)
+	AudioManager.play_sfx(AudioManager.SoundId.GAME_OVER)
 
 
 func _process(_delta: float) -> void:
