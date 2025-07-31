@@ -19,7 +19,7 @@ enum SoundId {
 var _audio_pools: Dictionary[SoundType, Array] = {}
 var _sound_library: Dictionary[SoundId, AudioStream] = {}
 
-var _master_volume := 0.2
+var _master_volume := 0.4
 var _sfx_volume := 0.8
 var _voice_volume := 0.8
 var _ambient_volume := 0.8
