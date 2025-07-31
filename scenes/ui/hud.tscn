@@ -57,13 +57,13 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Background/Congrats"]
 layout_mode = 2
-text = "Congraturations!"
+text = "Congrats!"
 label_settings = SubResource("LabelSettings_oo0fn")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Background/Congrats"]
 layout_mode = 2
-text = "Press F to Next Stage"
+text = "Press F to Next"
 label_settings = SubResource("LabelSettings_5ysmq")
 horizontal_alignment = 1
 
