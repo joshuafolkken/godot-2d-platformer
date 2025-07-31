@@ -63,7 +63,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Background/Congrats"]
 layout_mode = 2
-text = "Press F to Next"
+text = "Press F to Proceed"
 label_settings = SubResource("LabelSettings_5ysmq")
 horizontal_alignment = 1
 
