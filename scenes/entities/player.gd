@@ -19,7 +19,7 @@ const ANIMATIONS: Dictionary[State, String] = {
 @export var normal_speed := 150.0
 @export var dash_speed := 300.0
 @export var stop_speed_threshold := 100.0
-@export var fall_off_y := 0.0
+@export var fall_off_y := 100.0
 
 @export_group("Jumping")
 @export var jump_power := 300.0
