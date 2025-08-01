@@ -14,6 +14,7 @@ const STAGES: Array[String] = [
 	"jump",
 	"2-jumps",
 	"3-jumps",
+	"3-jumps-2",
 	"dash-jump",
 	"dash-jump-2",
 	"island",
