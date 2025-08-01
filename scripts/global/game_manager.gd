@@ -22,6 +22,9 @@ const STAGES: Array[String] = [
 	"midair-jump",
 	"midair-jump-2",
 	"final",
+	"walk-2",
+	"spikes",
+	"spikes-2",
 ]
 
 var _current_stage := INITIAL_STAGE_INDEX
