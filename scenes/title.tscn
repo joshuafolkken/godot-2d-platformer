@@ -93,6 +93,7 @@ theme_override_constants/separation = 8
 [node name="StartButton" type="Button" parent="CanvasLayer/MainMenu/MenuOptions"]
 layout_mode = 2
 focus_next = NodePath("../QuitButton")
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_yql1r")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -100,6 +101,7 @@ text = "Start"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/MenuOptions"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_yql1r")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
