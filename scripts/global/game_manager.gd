@@ -25,6 +25,8 @@ const STAGES: Array[String] = [
 	"walk-2",
 	"spikes",
 	"spikes-2",
+	"holed-mountain",
+	"holed-mountain-2",
 ]
 
 var _current_stage := INITIAL_STAGE_INDEX
