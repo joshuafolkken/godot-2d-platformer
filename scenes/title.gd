@@ -11,7 +11,7 @@ func _ready() -> void:
 	start_button.grab_focus()
 	quit_button.visible = OS.get_name() != "Web"
 	clear_count_label.text = (
-		"💀%d 🏆%d" % [Settings.load_death_count(), Settings.load_clear_count()]
+		"PLAYS: %d  CLEARS: %d" % [Settings.load_play_count(), Settings.load_clear_count()]
 	)
 
 
@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	Settings.increment_play_count()
 	GameManager.load_next_stage()
 
 
