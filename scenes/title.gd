@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var start_button: Button = $CanvasLayer/MainMenu/MenuOptions/StartButton
 @onready var quit_button: Button = $CanvasLayer/MainMenu/MenuOptions/QuitButton
+@onready var clear_count_label: Label = $CanvasLayer/ClearCountLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +10,9 @@ func _ready() -> void:
 	get_tree().paused = false
 	start_button.grab_focus()
 	quit_button.visible = OS.get_name() != "Web"
+	clear_count_label.text = (
+		"💀%d 🏆%d" % [Settings.load_death_count(), Settings.load_clear_count()]
+	)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

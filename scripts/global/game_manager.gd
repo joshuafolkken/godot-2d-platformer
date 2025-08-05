@@ -58,6 +58,7 @@ func load_title_scene() -> void:
 
 func load_stage(number: int) -> void:
 	if number < 0 or number >= STAGES.size():
+		Settings.increment_clear_count()
 		load_title_scene()
 		return
 
@@ -77,10 +78,13 @@ func _on_player_hit() -> void:
 	life_changed.emit()
 
 	if _current_life <= 0:
+		Settings.increment_death_count()
 		player_died.emit()
 	else:
 		player_respawned.emit()
 
 
 func _ready() -> void:
+	var count := Settings.load_death_count()
+	print("Death count: %d" % count)
 	SignalManager.player_hit.connect(_on_player_hit)
