@@ -78,13 +78,12 @@ func _on_player_hit() -> void:
 	life_changed.emit()
 
 	if _current_life <= 0:
-		Settings.increment_death_count()
 		player_died.emit()
 	else:
 		player_respawned.emit()
 
 
 func _ready() -> void:
-	var count := Settings.load_death_count()
+	var count := Settings.load_play_count()
 	print("Death count: %d" % count)
 	SignalManager.player_hit.connect(_on_player_hit)

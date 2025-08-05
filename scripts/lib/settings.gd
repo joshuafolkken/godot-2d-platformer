@@ -4,7 +4,7 @@ enum ErrorCode { SUCCESS = 0, FILE_NOT_FOUND = 1, SAVE_ERROR = 2, LOAD_ERROR = 3
 
 enum Section { LANGUAGE, STATISTICS }
 
-enum SectionKey { LOCALE, DEATH_COUNT, CLEAR_COUNT }
+enum SectionKey { LOCALE, PLAY_COUNT, CLEAR_COUNT }
 
 const CONFIG := {
 	"PATH": "user://settings.cfg",
@@ -69,13 +69,13 @@ static func save_language(locale_code: String) -> ErrorCode:
 	return _save(Section.LANGUAGE, SectionKey.LOCALE, locale_code)
 
 
-static func load_death_count(default := 0) -> int:
-	return _load(Section.STATISTICS, SectionKey.DEATH_COUNT, default)
+static func load_play_count(default := 0) -> int:
+	return _load(Section.STATISTICS, SectionKey.PLAY_COUNT, default)
 
 
-static func increment_death_count() -> ErrorCode:
-	var count := load_death_count() + 1
-	return _save(Section.STATISTICS, SectionKey.DEATH_COUNT, count)
+static func increment_play_count() -> ErrorCode:
+	var count := load_play_count() + 1
+	return _save(Section.STATISTICS, SectionKey.PLAY_COUNT, count)
 
 
 static func load_clear_count(default := 0) -> int:
