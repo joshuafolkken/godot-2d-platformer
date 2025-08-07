@@ -7,8 +7,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Log.d()
 	AudioManager.stop_all_sounds()
-
 	get_tree().paused = false
 	start_button.grab_focus()
 	quit_button.visible = OS.get_name() != "Web"
@@ -16,6 +16,7 @@ func _ready() -> void:
 		"PLAYS: %d  CLEARS: %d" % [Settings.load_play_count(), Settings.load_clear_count()]
 	)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Log.d()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +30,7 @@ func _on_start_button_pressed() -> void:
 	Settings.increment_play_count()
 	GameManager.load_next_stage()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Log.d()
 
 
 func _on_quit_button_pressed() -> void:
