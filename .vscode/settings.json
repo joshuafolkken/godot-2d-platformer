@@ -7,4 +7,5 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "EddieDover.gdscript-formatter-linter"
   },
+  "css.validate": false
 }
