@@ -12,7 +12,8 @@
             "debug_collisions": false,
             "debug_paths": false,
             "debug_navigation": false,
-            "additional_options": "--always-on-top",
+            "additional_options": "",
+            "debugServer": 6006,
         }
     ]
 }
