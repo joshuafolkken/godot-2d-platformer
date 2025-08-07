@@ -1,5 +1,5 @@
+// npx cspell "**/*"
 {
-  "dictionaries": ["godot", "gdscript"],
   "dictionaryDefinitions": [
     {
       "name": "godot",
@@ -10,6 +10,22 @@
       "name": "gdscript",
       "path": "./.cspell/gdscript.txt",
       "addWords": true
+    },
+    {
+      "name": "workspace",
+      "path": "./.cspell/workspace.txt",
+      "addWords": true
     }
-  ]
+  ],
+  "dictionaries": [
+    "godot",
+    "gdscript",
+    "workspace",
+  ],
+  "ignorePaths": [
+    "**/*.{godot,tscn,uid,import,tres}",
+    "**/*.{sh,json}",
+    "addons/",
+    "**/export/**",
+  ],
 }
