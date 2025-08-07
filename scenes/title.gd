@@ -8,6 +8,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Log.d()
+	AudioManager.stop_all_sounds()
 	get_tree().paused = false
 	start_button.grab_focus()
 	quit_button.visible = OS.get_name() != "Web"
