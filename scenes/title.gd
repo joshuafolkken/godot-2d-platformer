@@ -13,6 +13,7 @@ func _ready() -> void:
 	clear_count_label.text = (
 		"PLAYS: %d  CLEARS: %d" % [Settings.load_play_count(), Settings.load_clear_count()]
 	)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +26,7 @@ func _process(_delta: float) -> void:
 func _on_start_button_pressed() -> void:
 	Settings.increment_play_count()
 	GameManager.load_next_stage()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_quit_button_pressed() -> void:
