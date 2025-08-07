@@ -43,17 +43,13 @@ func load_title_scene() -> void:
 
 
 func load_next_stage() -> void:
-	Log.d()
 	if not _stage_manager.next():
 		Settings.increment_clear_count()
 		load_title_scene()
 		return
 
-	Log.d()
 	var stage_path := _stage_manager._get_stage_path()
-	Log.d()
 	_scene_manager.load_stage(stage_path)
-	Log.d()
 
 
 func _on_player_hit() -> void:
