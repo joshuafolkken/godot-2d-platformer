@@ -4,33 +4,24 @@ signal life_changed
 signal player_respawned
 signal player_died
 
-const INITIAL_STAGE_INDEX := -1
-const INITIAL_LIFE_COUNT := 3
+var _game_state: GameState
+var _stage_manager: StageManager
+var _scene_manager: SceneManager
 
-const TITLE_SCENE: PackedScene = preload("res://scenes/title.tscn")
 
-const STAGES: Array[String] = [
-	"walk",
-	"jump",
-	"2-jumps",
-	"3-jumps",
-	"3-jumps-2",
-	"dash-jump",
-	"dash-jump-2",
-	"island",
-	"island-2",
-	"midair-jump",
-	"midair-jump-2",
-	"final",
-	"walk-2",
-	"spikes",
-	"spikes-2",
-	"holed-mountain",
-	"holed-mountain-2",
-]
+func _initialize_managers() -> void:
+	_game_state = GameState.new()
+	_stage_manager = StageManager.new()
+	_scene_manager = SceneManager.new()
 
-var _current_stage := INITIAL_STAGE_INDEX
-var _current_life := INITIAL_LIFE_COUNT
+
+func _connect_signals() -> void:
+	SignalManager.player_hit.connect(_on_player_hit)
+
+
+func _ready() -> void:
+	_connect_signals()
+	_initialize_managers()
 
 
 func get_version() -> String:
@@ -38,52 +29,38 @@ func get_version() -> String:
 
 
 func get_stage() -> String:
-	return "Stage: %d/%d" % [_current_stage + 1, STAGES.size()]
+	return _stage_manager.get_display_text()
 
 
 func get_life() -> String:
-	return "Life: %d" % _current_life
-
-
-func _change_scene(packed_scene: PackedScene) -> void:
-	get_tree().change_scene_to_packed(packed_scene)
+	return _game_state.get_life_text()
 
 
 func load_title_scene() -> void:
-	_current_stage = INITIAL_STAGE_INDEX
-	_current_life = INITIAL_LIFE_COUNT
-	AudioManager.stop_all_sounds()
-	_change_scene(TITLE_SCENE)
+	_game_state.reset()
+	_stage_manager.reset()
+	_scene_manager.load_title()
 
 
-func load_stage(number: int) -> void:
-	if number < 0 or number >= STAGES.size():
+func load_next_stage() -> void:
+	Log.d()
+	if not _stage_manager.next():
 		Settings.increment_clear_count()
 		load_title_scene()
 		return
 
-	var stage_scene: PackedScene = load("res://scenes/stages/stage-%s.tscn" % STAGES[number])
-	_change_scene(stage_scene)
-
-
-func load_next_stage() -> void:
-	_current_stage += 1
-	load_stage(_current_stage)
-	AudioManager.stop_all_sounds()
-	AudioManager.play_ambient(AudioManager.SoundId.BGM)
+	Log.d()
+	var stage_path := _stage_manager._get_stage_path()
+	Log.d()
+	_scene_manager.load_stage(stage_path)
+	Log.d()
 
 
 func _on_player_hit() -> void:
-	_current_life -= 1
+	var can_continue := _game_state.decrease_life()
 	life_changed.emit()
 
-	if _current_life <= 0:
+	if not can_continue:
 		player_died.emit()
 	else:
 		player_respawned.emit()
-
-
-func _ready() -> void:
-	var count := Settings.load_play_count()
-	print("Death count: %d" % count)
-	SignalManager.player_hit.connect(_on_player_hit)
