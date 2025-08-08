@@ -1,5 +1,14 @@
 {
+    "name": "godot-2d-platformer",
+    "version": "1.0.0",
     "scripts": {
-        "prepare": "npx lefthook install"
+        "prepare": "npx lefthook install",
+        "spellcheck": "cspell \"**/*\"",
+        "spellcheck:fix": "cspell \"**/*\" --fix",
+        "spellcheck:quiet": "cspell \"**/*\" --quiet",
+        "spellcheck:report": "cspell \"**/*\" --report all"
+    },
+    "devDependencies": {
+        "cspell": "^9.2.0"
     }
 }

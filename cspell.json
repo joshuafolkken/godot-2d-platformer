@@ -1,31 +1,40 @@
-// npx cspell "**/*"
 {
+  "version": "0.2",
+  "language": "en",
+  "words": [],
+  "ignoreWords": [],
+  "patterns": [],
   "dictionaryDefinitions": [
     {
-      "name": "godot",
+      "name": "Godot",
       "path": "./.cspell/godot.txt",
       "addWords": true
     },
     {
-      "name": "gdscript",
+      "name": "GDScript",
       "path": "./.cspell/gdscript.txt",
       "addWords": true
     },
     {
-      "name": "workspace",
+      "name": "Workspace",
       "path": "./.cspell/workspace.txt",
       "addWords": true
     }
   ],
   "dictionaries": [
-    "godot",
-    "gdscript",
-    "workspace",
+    "Godot",
+    "GDScript",
+    "Workspace"
   ],
   "ignorePaths": [
     "**/*.{godot,tscn,uid,import,tres}",
     "**/*.{sh,json}",
     "addons/",
     "**/export/**",
-  ],
+    "node_modules/",
+    "package-lock.json",
+    ".git/**",
+    "**/*.po",
+    "**/*.pot"
+  ]
 }
