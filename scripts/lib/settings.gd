@@ -36,7 +36,7 @@ static func _load(section: Section, key: SectionKey, default: Variant) -> Varian
 	var config := ConfigFile.new()
 
 	if config.load(CONFIG.PATH) != OK:
-		push_warning("[Settings] Failed to load settings from %s" % CONFIG.PATH)
+		# print("[Settings] " + ERROR_MESSAGES[ErrorCode.LOAD_ERROR] % [CONFIG.PATH, default])
 		return default
 
 	var section_name: String = Section.keys()[section]
