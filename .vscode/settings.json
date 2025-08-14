@@ -7,5 +7,5 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "EddieDover.gdscript-formatter-linter"
   },
-  "cSpell.words": ["Folkken", "platformer", "respawned"]
+  "css.validate": false
 }
