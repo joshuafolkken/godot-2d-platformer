@@ -4,33 +4,24 @@ signal life_changed
 signal player_respawned
 signal player_died
 
-const INITIAL_STAGE_INDEX := -1
-const INITIAL_LIFE_COUNT := 3
+var _game_state: GameState
+var _stage_manager: StageManager
+var _scene_manager: SceneManager
 
-const TITLE_SCENE: PackedScene = preload("res://scenes/title.tscn")
 
-const STAGES: Array[String] = [
-	"walk",
-	"jump",
-	"2-jumps",
-	"3-jumps",
-	"3-jumps-2",
-	"dash-jump",
-	"dash-jump-2",
-	"island",
-	"island-2",
-	"midair-jump",
-	"midair-jump-2",
-	"final",
-	"walk-2",
-	"spikes",
-	"spikes-2",
-	"holed-mountain",
-	"holed-mountain-2",
-]
+func _initialize_managers() -> void:
+	_game_state = GameState.new()
+	_stage_manager = StageManager.new()
+	_scene_manager = SceneManager.new()
 
-var _current_stage := INITIAL_STAGE_INDEX
-var _current_life := INITIAL_LIFE_COUNT
+
+func _connect_signals() -> void:
+	SignalManager.player_hit.connect(_on_player_hit)
+
+
+func _ready() -> void:
+	_connect_signals()
+	_initialize_managers()
 
 
 func get_version() -> String:
