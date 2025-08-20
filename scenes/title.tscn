@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dfddsmhm3n04y"]
+[gd_scene load_steps=16 format=4 uid="uid://dfddsmhm3n04y"]
 
 [ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scenes/title.gd" id="1_yql1r"]
 [ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="2_ia1n6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/entities/player.tscn" id="5_ygloa"]
 [ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/entities/goal.tscn" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/ui/version.tscn" id="7_7af2g"]
+[ext_resource type="PackedScene" uid="uid://cduookxysbg88" path="res://scenes/ui/virtual_gamepad.tscn" id="8_ia1n6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
 font_size = 120
@@ -153,6 +154,8 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 22
 text = "PLAYS: 00  CLEARS: 00"
 horizontal_alignment = 2
+
+[node name="VirtualGamepad" parent="CanvasLayer" instance=ExtResource("8_ia1n6")]
 
 [connection signal="focus_entered" from="CanvasLayer/MainMenu/MenuOptions/StartButton" to="." method="_on_start_button_focus_entered"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MenuOptions/StartButton" to="." method="_on_start_button_pressed"]
