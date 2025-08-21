@@ -3,7 +3,9 @@ fullsize
 joshuafolkken
 Lefthook
 msys
+Noto
 OSTYPE
 platformer
 respawned
 runtest
+Segoe

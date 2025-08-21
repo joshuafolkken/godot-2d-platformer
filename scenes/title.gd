@@ -3,18 +3,26 @@ extends Node2D
 @onready var start_button: Button = $CanvasLayer/MainMenu/MenuOptions/StartButton
 @onready var quit_button: Button = $CanvasLayer/MainMenu/MenuOptions/QuitButton
 @onready var clear_count_label: Label = $CanvasLayer/ClearCountLabel
+@onready var how_to_play_label: Label = $CanvasLayer/MainMenu/HowToPlay
+@onready var add_home_label: Label = $CanvasLayer/MainMenu/AddHomeLabel
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	Log.d()
-	AudioManager.stop_all_sounds()
-	get_tree().paused = false
+func setup_hud() -> void:
 	start_button.grab_focus()
 	quit_button.visible = OS.get_name() != "Web"
 	clear_count_label.text = (
 		"PLAYS: %d  CLEARS: %d" % [Settings.load_play_count(), Settings.load_clear_count()]
 	)
+
+	how_to_play_label.visible = not DeviceDetector.is_mobile_web_browser()
+	add_home_label.visible = not DeviceDetector.can_fullscreen()
+
+
+func _ready() -> void:
+	Log.d()
+	AudioManager.stop_all_sounds()
+	get_tree().paused = false
+	setup_hud()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Log.d()
 
@@ -22,7 +30,9 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	Settings.increment_play_count()
 	GameManager.load_next_stage()
-	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+	if not DeviceDetector.is_touch_device():
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_quit_button_pressed() -> void:

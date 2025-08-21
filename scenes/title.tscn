@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dfddsmhm3n04y"]
+[gd_scene load_steps=17 format=4 uid="uid://dfddsmhm3n04y"]
 
 [ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scenes/title.gd" id="1_yql1r"]
 [ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="2_ia1n6"]
@@ -45,6 +45,11 @@ font_size = 28
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ia1n6"]
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Title" type="Node2D"]
 script = ExtResource("1_yql1r")
 
@@ -73,12 +78,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -272.0
+offset_top = -65.5
 offset_right = 300.0
-offset_bottom = 206.0
+offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 
 [node name="GameName" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
@@ -116,6 +121,13 @@ JUMP:   M         SPACE
 DASH:   N         SHIFT
 ACCEPT:   F         ENTER  "
 label_settings = SubResource("LabelSettings_yql1r")
+horizontal_alignment = 1
+
+[node name="AddHomeLabel" type="Label" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+text = "Add to Home Screen
+for full screen."
+label_settings = SubResource("LabelSettings_ia1n6")
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
