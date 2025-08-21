@@ -55,13 +55,13 @@ offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Background/Congrats"]
+[node name="CongratsLabel" type="Label" parent="Background/Congrats"]
 layout_mode = 2
 text = "Congrats!"
 label_settings = SubResource("LabelSettings_oo0fn")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Background/Congrats"]
+[node name="ProceedLabel" type="Label" parent="Background/Congrats"]
 layout_mode = 2
 text = "Press F to Proceed"
 label_settings = SubResource("LabelSettings_5ysmq")
@@ -82,13 +82,13 @@ offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Background/GameOver"]
+[node name="GameOverLabel" type="Label" parent="Background/GameOver"]
 layout_mode = 2
 text = "Game Over"
 label_settings = SubResource("LabelSettings_ahhtf")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Background/GameOver"]
+[node name="ReturnLabel" type="Label" parent="Background/GameOver"]
 layout_mode = 2
 text = "Press F to Return"
 label_settings = SubResource("LabelSettings_5ysmq")

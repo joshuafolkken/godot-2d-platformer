@@ -3,6 +3,8 @@ extends Control
 @onready var background: ColorRect = $Background
 @onready var congrats: VBoxContainer = $Background/Congrats
 @onready var game_over: VBoxContainer = $Background/GameOver
+@onready var proceed_label: Label = $Background/Congrats/ProceedLabel
+@onready var return_label: Label = $Background/GameOver/ReturnLabel
 
 
 func hide_hud() -> void:
@@ -14,10 +16,18 @@ func show_hud() -> void:
 	background.visible = true
 
 
+func _setup_labels() -> void:
+	var format := "Press %s to %s"
+	var key := "✓" if DeviceDetector.is_touch_device() else "F"
+	proceed_label.text = format % [key, "Proceed"]
+	return_label.text = format % [key, "Return"]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	hide_hud()
+	_setup_labels()
 	SignalManager.game_completed.connect(_on_game_completed)
 	GameManager.player_died.connect(_on_player_died)
 
