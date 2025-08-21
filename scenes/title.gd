@@ -19,25 +19,17 @@ func _ready() -> void:
 	Log.d()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-	#if Input.is_action_just_pressed(ActionName.F):
-	#GameManager.load_next_stage()
-
-
 func _on_start_button_pressed() -> void:
 	Settings.increment_play_count()
 	GameManager.load_next_stage()
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Log.d()
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func _input(_event: InputEvent) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(ActionName.DOWN):
 		var current_focus := get_viewport().gui_get_focus_owner()
 		var next_focus := current_focus.find_next_valid_focus()
@@ -46,6 +38,10 @@ func _input(_event: InputEvent) -> void:
 		var current_focus := get_viewport().gui_get_focus_owner()
 		var next_focus := current_focus.find_prev_valid_focus()
 		next_focus.grab_focus()
+	elif Input.is_action_just_pressed(ActionName.INTERACT):
+		var focused: Button = get_viewport().gui_get_focus_owner()
+		if focused:
+			focused.emit_signal("pressed")
 
 
 func _on_start_button_focus_entered() -> void:

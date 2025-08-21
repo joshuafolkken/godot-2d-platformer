@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://cduookxysbg88"]
+
+[ext_resource type="Script" uid="uid://c531qvi5w7omu" path="res://scenes/ui/virtual_gamepad.gd" id="1_e33je"]
+[ext_resource type="Texture2D" uid="uid://k0ry82xh40a3" path="res://assets/ui/lineLight.svg" id="2_ijgxl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijgxl"]
+atlas = ExtResource("2_ijgxl")
+region = Rect2(360, 152, 160, 160)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e33je"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijgxl"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtbcd"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1i1g"]
+radius = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtbcd"]
+atlas = ExtResource("2_ijgxl")
+region = Rect2(730, 512, 80, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_um0nk"]
+radius = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1i1g"]
+atlas = ExtResource("2_ijgxl")
+region = Rect2(550, 332, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrhv4"]
+atlas = ExtResource("2_ijgxl")
+region = Rect2(550, 512, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eev5s"]
+atlas = ExtResource("2_ijgxl")
+region = Rect2(460, 512, 80, 80)
+
+[node name="VirtualGamepad" type="Control"]
+modulate = Color(1, 1, 1, 0.376471)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 508.0
+offset_right = 2.0
+offset_bottom = 508.0
+script = ExtResource("1_e33je")
+
+[node name="Arrows" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 74.0
+offset_top = -325.0
+offset_right = 114.0
+offset_bottom = -285.0
+
+[node name="TextureRect" type="TextureRect" parent="Arrows"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 162.0
+offset_bottom = 158.0
+texture = SubResource("AtlasTexture_ijgxl")
+stretch_mode = 4
+
+[node name="Left" type="TouchScreenButton" parent="Arrows"]
+position = Vector2(28, 79)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_e33je")
+
+[node name="Right" type="TouchScreenButton" parent="Arrows"]
+position = Vector2(134, 79)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_ijgxl")
+
+[node name="Up" type="TouchScreenButton" parent="Arrows"]
+position = Vector2(82, 25)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_jtbcd")
+
+[node name="Down" type="TouchScreenButton" parent="Arrows"]
+position = Vector2(82, 131)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_t1i1g")
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 953.0
+offset_top = -356.0
+offset_right = 993.0
+offset_bottom = -316.0
+
+[node name="Dash" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(38, 67)
+texture_normal = SubResource("AtlasTexture_jtbcd")
+shape = SubResource("CircleShape2D_um0nk")
+
+[node name="Jump" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(108, 135)
+texture_normal = SubResource("AtlasTexture_t1i1g")
+shape = SubResource("CircleShape2D_um0nk")
+
+[node name="Reset" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(107, -3)
+texture_normal = SubResource("AtlasTexture_vrhv4")
+shape = SubResource("CircleShape2D_um0nk")
+
+[node name="Interact" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(180, 67)
+texture_normal = SubResource("AtlasTexture_eev5s")
+shape = SubResource("CircleShape2D_um0nk")
