@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dfddsmhm3n04y"]
+[gd_scene load_steps=18 format=4 uid="uid://dfddsmhm3n04y"]
 
 [ext_resource type="Script" uid="uid://dn53tlskbhru8" path="res://scenes/title.gd" id="1_yql1r"]
 [ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="2_ia1n6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/entities/player.tscn" id="5_ygloa"]
 [ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/entities/goal.tscn" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/ui/version.tscn" id="7_7af2g"]
+[ext_resource type="PackedScene" uid="uid://bh8dp68ghx5if" path="res://scenes/side_mask.tscn" id="7_hiwto"]
 [ext_resource type="PackedScene" uid="uid://cduookxysbg88" path="res://scenes/ui/virtual_gamepad.tscn" id="8_ia1n6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
@@ -69,7 +70,18 @@ position = Vector2(482, -96)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SideMask" parent="CanvasLayer" instance=ExtResource("7_hiwto")]
+
 [node name="Version" parent="CanvasLayer" instance=ExtResource("7_7af2g")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 638.0
+offset_top = 3.0
+offset_right = 638.0
+offset_bottom = 3.0
+grow_vertical = 0
 
 [node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -149,16 +161,16 @@ text = "© 2025 Joshua Studio"
 label_settings = SubResource("LabelSettings_yql1r")
 
 [node name="ClearCountLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -186.0
-offset_top = -92.0
-offset_right = -38.0
-offset_bottom = -67.0
-grow_horizontal = 0
+offset_left = 369.0
+offset_top = -88.0
+offset_right = 600.0
+offset_bottom = -63.0
+grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

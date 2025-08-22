@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://j003r0ux6nbl"]
+[gd_scene load_steps=15 format=4 uid="uid://j003r0ux6nbl"]
 
 [ext_resource type="Script" uid="uid://crcfpc6qyua0k" path="res://scenes/stage_base.gd" id="1_dd2yu"]
 [ext_resource type="PackedScene" uid="uid://hmqq4pbyb36n" path="res://scenes/ui/camera.tscn" id="2_7rti2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbwng1elwhg8" path="res://scenes/entities/start.tscn" id="6_qo548"]
 [ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/entities/goal.tscn" id="7_3tx44"]
 [ext_resource type="PackedScene" uid="uid://bnfahk087865n" path="res://scenes/ui/background.tscn" id="8_oo08v"]
+[ext_resource type="PackedScene" uid="uid://bh8dp68ghx5if" path="res://scenes/side_mask.tscn" id="9_3e27v"]
 [ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/ui/version.tscn" id="9_rdlus"]
 [ext_resource type="Texture2D" uid="uid://bkn5m1wjaq541" path="res://assets/Background/Green.png" id="9_u7iro"]
 [ext_resource type="PackedScene" uid="uid://drfk74s8f3rrj" path="res://scenes/ui/hud.tscn" id="10_8xnx5"]
@@ -41,12 +42,35 @@ texture = ExtResource("9_u7iro")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SideMask" parent="CanvasLayer" instance=ExtResource("9_3e27v")]
+
 [node name="Version" parent="CanvasLayer" instance=ExtResource("9_rdlus")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 638.0
+offset_top = 3.0
+offset_right = 638.0
+offset_bottom = 3.0
+grow_vertical = 0
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("10_8xnx5")]
 
 [node name="Stage" parent="CanvasLayer" instance=ExtResource("11_rmpb6")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = -600.0
+grow_horizontal = 2
 
 [node name="Life" parent="CanvasLayer" instance=ExtResource("12_jsntj")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -639.0
+offset_right = -599.0
+grow_horizontal = 2
 
 [node name="VirtualGamepad" parent="CanvasLayer" instance=ExtResource("13_3e27v")]
