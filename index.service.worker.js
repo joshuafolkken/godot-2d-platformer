@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1755833998|7909251';
+const CACHE_VERSION = '1755840796|7634532';
 /** @type {string} */
 const CACHE_PREFIX = 'Godot 2D Platfor-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
