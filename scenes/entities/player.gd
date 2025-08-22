@@ -35,6 +35,7 @@ var _is_jumping := false
 var _jump_time := 0.0
 var _current_state := State.IDLE
 var _has_fall_off := false
+var _is_dash_jumping := false
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -73,6 +74,7 @@ func _handle_jump(delta: float) -> void:
 		if not _is_jumping:
 			AudioManager.play_sfx(AudioManager.SoundId.JUMP)
 			_is_jumping = true
+			_is_dash_jumping = _is_dash_pressed()
 	else:
 		_apply_gravity(delta)
 
@@ -99,15 +101,9 @@ func _update_state(is_moving: bool) -> void:
 
 
 func _handle_horizontal_move() -> void:
+	var is_dash := _is_dash_pressed() if is_on_floor() else _is_dash_jumping
+	var speed := dash_speed if is_dash else normal_speed
 	var input_direction := _get_input_direction()
-
-	if not is_on_floor():
-		if sign(velocity.x) == sign(input_direction):
-			return
-		if input_direction == 0:
-			return
-
-	var speed := dash_speed if _is_dash_pressed() else normal_speed
 	var target_speed := input_direction * speed
 	var acceleration := move_acceleration if input_direction != 0.0 else stop_acceleration
 

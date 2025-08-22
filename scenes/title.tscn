@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgovpw80eie8h" path="res://scenes/entities/player.tscn" id="5_ygloa"]
 [ext_resource type="PackedScene" uid="uid://c2mu03ncq04o1" path="res://scenes/entities/goal.tscn" id="6_6civk"]
 [ext_resource type="PackedScene" uid="uid://byp6x8e3ljl7g" path="res://scenes/ui/version.tscn" id="7_7af2g"]
-[ext_resource type="PackedScene" uid="uid://bh8dp68ghx5if" path="res://scenes/side_mask.tscn" id="7_hiwto"]
+[ext_resource type="PackedScene" uid="uid://c46a3ci7cfhd1" path="res://scenes/side_mask.tscn" id="7_hiwto"]
 [ext_resource type="PackedScene" uid="uid://cduookxysbg88" path="res://scenes/ui/virtual_gamepad.tscn" id="8_ia1n6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
@@ -166,9 +166,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 369.0
+offset_left = 363.0
 offset_top = -88.0
-offset_right = 600.0
+offset_right = 594.0
 offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 0
