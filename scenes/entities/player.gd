@@ -100,6 +100,13 @@ func _update_state(is_moving: bool) -> void:
 
 func _handle_horizontal_move() -> void:
 	var input_direction := _get_input_direction()
+
+	if not is_on_floor():
+		if sign(velocity.x) == sign(input_direction):
+			return
+		if input_direction == 0:
+			return
+
 	var speed := dash_speed if _is_dash_pressed() else normal_speed
 	var target_speed := input_direction * speed
 	var acceleration := move_acceleration if input_direction != 0.0 else stop_acceleration
