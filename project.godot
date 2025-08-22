@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot 2D Platformer"
-config/version="0.27.0"
+config/version="0.27.1"
 run/main_scene="uid://dfddsmhm3n04y"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
@@ -105,10 +105,6 @@ down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
