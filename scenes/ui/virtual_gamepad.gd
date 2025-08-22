@@ -33,6 +33,7 @@ func _setup_button(action_name: String) -> void:
 	if not touch_screen_button:
 		return
 
+	touch_screen_button.passby_press = true
 	touch_screen_button.pressed.connect(_on_pressed.bind(button_name))
 	touch_screen_button.released.connect(_on_released.bind(button_name))
 

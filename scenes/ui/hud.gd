@@ -18,7 +18,7 @@ func show_hud() -> void:
 
 func _setup_labels() -> void:
 	var format := "Press %s to %s"
-	var key := "✓" if DeviceDetector.is_touch_device() else "F"
+	var key := "CHECK" if DeviceDetector.is_touch_device() else "F"
 	proceed_label.text = format % [key, "Proceed"]
 	return_label.text = format % [key, "Return"]
 
