@@ -41,77 +41,75 @@ region = Rect2(460, 512, 80, 80)
 [node name="VirtualGamepad" type="Control"]
 modulate = Color(1, 1, 1, 0.376471)
 layout_mode = 3
-anchors_preset = 0
-offset_left = 2.0
-offset_top = 508.0
-offset_right = 2.0
-offset_bottom = 508.0
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 script = ExtResource("1_e33je")
 
 [node name="Arrows" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 36.0
-offset_top = -325.0
+offset_top = 161.0
 offset_right = 76.0
-offset_bottom = -285.0
+offset_bottom = 201.0
 scale = Vector2(1.2, 1.2)
 
 [node name="TextureRect" type="TextureRect" parent="Arrows"]
 layout_mode = 0
-offset_left = 1.0
+offset_left = 13.5
 offset_top = -2.0
-offset_right = 161.0
+offset_right = 173.5
 offset_bottom = 158.0
 texture = SubResource("AtlasTexture_ijgxl")
 stretch_mode = 4
 
 [node name="Left" type="TouchScreenButton" parent="Arrows"]
-position = Vector2(28, 79)
+position = Vector2(40.5, 79)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_e33je")
 
 [node name="Right" type="TouchScreenButton" parent="Arrows"]
-position = Vector2(134, 79)
+position = Vector2(146.5, 79)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_ijgxl")
 
 [node name="Up" type="TouchScreenButton" parent="Arrows"]
-position = Vector2(82, 25)
+position = Vector2(94.4999, 25)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_jtbcd")
 
 [node name="Down" type="TouchScreenButton" parent="Arrows"]
-position = Vector2(82, 131)
+position = Vector2(94.5001, 131)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_t1i1g")
 
 [node name="Buttons" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 928.0
-offset_top = -356.0
-offset_right = 968.0
-offset_bottom = -316.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
 scale = Vector2(1.2, 1.2)
 
 [node name="Dash" type="TouchScreenButton" parent="Buttons"]
-position = Vector2(38, 67)
+position = Vector2(-264.167, 165.833)
 texture_normal = SubResource("AtlasTexture_jtbcd")
 shape = SubResource("CircleShape2D_um0nk")
 
 [node name="Jump" type="TouchScreenButton" parent="Buttons"]
-position = Vector2(108, 135)
+position = Vector2(-194.167, 233.833)
 texture_normal = SubResource("AtlasTexture_t1i1g")
 shape = SubResource("CircleShape2D_um0nk")
 
 [node name="Reset" type="TouchScreenButton" parent="Buttons"]
-position = Vector2(107, -3)
+position = Vector2(-195.167, 95.8333)
 texture_normal = SubResource("AtlasTexture_vrhv4")
 shape = SubResource("CircleShape2D_um0nk")
 
 [node name="Interact" type="TouchScreenButton" parent="Buttons"]
-position = Vector2(180, 67)
+position = Vector2(-122.167, 165.833)
 texture_normal = SubResource("AtlasTexture_eev5s")
 shape = SubResource("CircleShape2D_um0nk")
