@@ -15,13 +15,13 @@ const STAGES: Array[String] = [
 	"midair-jump-2",
 	"dash-jump",
 	"dash-jump-2",
-	"final",
 	"walk-2",
 	"spikes",
 	"spikes-2",
 	"holed-mountain",
 	"holed-mountain-2",
 	"troll-run",
+	"final-2",
 ]
 
 var _stage_index: int
