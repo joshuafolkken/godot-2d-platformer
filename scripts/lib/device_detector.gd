@@ -15,7 +15,7 @@ static func is_mobile_web_browser() -> bool:
 		return false
 
 	var navigator: JavaScriptObject = JavaScriptBridge.get_interface("navigator")
-	@warning_ignore("unsafe_property_access") var user_agent: String = navigator.userAgent
+	var user_agent: String = navigator.userAgent
 
 	for keyword: String in MOBILE_KEYWORDS:
 		if keyword in user_agent:
