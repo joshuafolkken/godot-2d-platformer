@@ -9,7 +9,7 @@
         "pre-push": "lefthook run pre-push",
         "format": "gdformat scripts/ scenes/",
         "lint": "gdlint scripts/ scenes/",
-        "test:win": ".\\addons\\gdUnit4\\runtest.cmd -a .\\tests -a .\\scripts --godot_bin \"C:\\Program Files\\Godot\\Godot_v4.4.1-stable_win64.exe\"",
+        "test:win": ".\\addons\\gdUnit4\\runtest.cmd -a .\\tests -a .\\scripts --godot_bin \"C:\\Program Files\\Godot\\Godot_v4.5.1-stable_win64.exe\"",
         "test:mac": "./addons/gdUnit4/runtest.sh -a ./tests -a ./scripts --godot_bin /Applications/Godot.app/Contents/MacOS/Godot",
         "test:linux": "./addons/gdUnit4/runtest.sh -a ./tests -a ./scripts --godot_bin godot",
         "clean:reports": "rimraf reports/"
