@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Godot 2D Platformer"
-config/version="0.28.1"
+config/version="0.28.2"
 run/main_scene="uid://dfddsmhm3n04y"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
